@@ -3,10 +3,10 @@
  */
 
 export default function debouncer (callback: Function, timeout = 200, ...args: any): Function {
-  let timeoutID;
+  let timeoutID: any;
   return function () {
     const _this = this;
-    clearTimeout( timeoutID );
+    window.clearTimeout( timeoutID );
     timeoutID = setTimeout( function () {
       callback.apply( _this, args )
     }, timeout )

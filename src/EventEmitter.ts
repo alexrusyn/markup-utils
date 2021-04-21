@@ -1,4 +1,4 @@
-type EventList = { [key: string]: Array<Object> };
+type EventList = { [key: string]: Array<Function> };
 
 export default class EventEmitter {
   events: EventList
@@ -26,8 +26,7 @@ export default class EventEmitter {
    */
 
   emit (eventName: string, data?: any): void {
-    const event = this.events[eventName];
-    if ( !event ) return;
-    event.forEach( (callback: Function) => callback.call(null, data) );
+    const event: Function[] | undefined = this.events[eventName];
+    if ( event ) event.forEach((callback) => callback.call(null, data) );
   }
 }
