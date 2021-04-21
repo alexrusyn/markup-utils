@@ -1,8 +1,8 @@
 {
   "name": "markup-utils",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Utils for markup",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "dev": "webpack --mode development",
     "build": "webpack --mode production",
