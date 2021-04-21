@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "outDir": "./dist/",
+    "module": "ESNext",
+    "removeComments": false,
+    "sourceMap": true,
+    "allowJs": true
+  }
+}
