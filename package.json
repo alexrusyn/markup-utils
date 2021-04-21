@@ -1,8 +1,9 @@
 {
   "name": "markup-utils",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "description": "Utils for markup",
   "main": "./dist/index.js",
+  "types": "./dist/*.d.ts",
   "files": [ 
     "dist" 
   ],
