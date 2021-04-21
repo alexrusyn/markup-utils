@@ -3,11 +3,16 @@ const path = require('path');
 const htmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
+  target: 'web',
   mode: 'development',
   entry: './src/index.js',
   output: {
-    filename: 'index.js',
     path: path.resolve(__dirname, 'dist'),
+    filename: 'index.js',
+    library: 'markup-utils',
+    libraryTarget: 'umd',
+    globalObject: 'this',
+    umdNamedDefine: true,
     clean: true
   },
   module: {
