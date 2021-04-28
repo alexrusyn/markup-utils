@@ -1,5 +1,10 @@
 type EventList = { [key: string]: Array<Function> };
 
+type Data =
+  { [key: string]: string | number }
+  | Array<string>
+  | Array<number>;
+
 export default class EventEmitter {
   events: EventList
 
@@ -7,7 +12,7 @@ export default class EventEmitter {
    * Used to create and track events
    */
 
-  constructor () {
+  constructor() {
     this.events = {}
   }
 
@@ -15,18 +20,18 @@ export default class EventEmitter {
    * Creates an event by key, and saves the callback
    */
 
-  on (eventName: string, callback: Function): Function {
-    if ( !this.events[eventName] ) this.events[eventName] = [];
-		this.events[eventName].push(callback);
-		return () => this.events[eventName] = this.events[eventName].filter(e => callback !== e);
+  on(eventName: string, callback: Function): Function {
+    if (!this.events[eventName]) this.events[eventName] = [];
+    this.events[eventName].push(callback);
+    return () => this.events[eventName] = this.events[eventName].filter(e => callback !== e);
   }
 
   /**
    * Call an event by key and triggers a callback
    */
 
-  emit (eventName: string, data?: any): void {
+  emit(eventName: string, data?: Data): void {
     const event: Function[] | undefined = this.events[eventName];
-    if ( event ) event.forEach((callback) => callback.call(null, data) );
+    if (event) event.forEach((callback) => callback.call(null, data));
   }
 }
