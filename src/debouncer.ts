@@ -1,5 +1,8 @@
 /**
  * Designed to control the number of calls. Used to set the delay between events.
+ * @example {
+ *  debouncer(() => {}, 200);
+ * }
  */
 
 export default function debouncer(callback: Function, timeout = 200, ...args: any): EventListener {
